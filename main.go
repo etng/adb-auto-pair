@@ -13,9 +13,16 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"time"
 )
+
+var appVersion = "unknown"
+var gitHash = "unknown"
+var builtAt = "unknown"
+var goVersion = fmt.Sprintf("%s %s/%s", runtime.Version(), runtime.GOOS, runtime.GOARCH)
+var hideBanner bool
 
 func init() {
 	rand.Seed(time.Now().UnixNano())
@@ -34,6 +41,7 @@ func RandStringRunes(n int) string {
 const dnsDomain = "_adb-tls-pairing._tcp"
 
 func main() {
+	fmt.Printf("adbapair %s %s build at %s with %s\n", appVersion, goVersion, builtAt, gitHash)
 	var pngBytes []byte
 	psk := RandStringRunes(6)
 	dnsId := RandStringRunes(24)
