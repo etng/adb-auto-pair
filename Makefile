@@ -1,4 +1,4 @@
-VERSION=0.0.9
+VERSION=0.0.10
 GOOS=${shell go env GOOS}
 EXT=""
 ifeq (${GOOS},windows)
@@ -21,6 +21,6 @@ build:
 	#upx -9 dist/adbapair_darwin
 	upx -9 dist/adbapair_windows.exe
 release:
-+       . ~/.gh ;GITHUB_TOKEN=$${GITHUB_TOKEN} gh release create v${VERSION} -t v${VERSION} -n v${VERSION}  dist/adbapair* -R https://github.com/etng/adb-auto-pair
+    . ~/.gh ;GITHUB_TOKEN=$${GITHUB_TOKEN} gh release create v${VERSION} -t v${VERSION} -n v${VERSION}  dist/adbapair* -R https://github.com/etng/adb-auto-pair
 build_target:
 	GOOS=${os} GOARCH=${arch} CGO_ENABLED=0 go build -o dist/adbapair_${os}${ext} -ldflags "-s -w -X 'main.appVersion=${VERSION}' -X 'main.goVersion=$(shell go version)' -X  'main.builtAt=${shell date -u '+%Y-%m-%d_%I:%M:%S%p'}' -X 'main.gitHash=${shell git describe --long --dirty --abbrev=14}' "  main.go
