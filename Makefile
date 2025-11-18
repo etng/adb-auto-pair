@@ -18,7 +18,7 @@ build:
 	make build_target os=windows arch=amd64 ext=".exe"
 	make build_target os=darwin arch=amd64 ext=""
 	upx -9 dist/adbapair_linux
-	upx -9 dist/adbapair_darwin
+	#upx -9 dist/adbapair_darwin
 	upx -9 dist/adbapair_windows.exe
 release:
 +       . ~/.gh ;GITHUB_TOKEN=$${GITHUB_TOKEN} gh release create v${VERSION} -t v${VERSION} -n v${VERSION}  dist/adbapair* -R https://github.com/etng/adb-auto-pair
