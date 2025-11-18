@@ -5,7 +5,7 @@
 
 参考自[[Android] Using ADB QR code pairing in R](https://medium.com/@shakalaca/android-using-adb-qr-code-pairing-in-r-52f16db3df6d)
 
-* 无限调试确实方便，少了一根数据线
+* 无线调试确实方便，少了一根数据线
 * 不想打开 AS 要自己连接挨个敲命令我是累了，研究了一下扫码配对的方法
 * QR code 格式：`WIFI:T:ADB;S:<name>;P:<code>;;`
     * name 为自定义的 instance name 随机一个就好
