@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"bytes"
 	"fmt"
-	qrcode "github.com/skip2/go-qrcode"
 	"image"
 	"image/png"
 	"io"
@@ -16,6 +15,8 @@ import (
 	"runtime"
 	"strings"
 	"time"
+
+	qrcode "github.com/skip2/go-qrcode"
 )
 
 var appVersion = "unknown"
@@ -123,7 +124,7 @@ func main() {
 	}
 }
 
-// Print the image by using ANSI x-term color in terminal
+// PrintImage Print the image by using ANSI x-term color in terminal
 func PrintImage(img image.Image) {
 	for i := 0; i < img.Bounds().Max.Y; i++ {
 		for j := 0; j < img.Bounds().Max.X; j++ {
